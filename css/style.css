@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff-text: 'Roboto', sans-serif;
+
+  --tt-color-heading: hsla(194, 68%, 15%);
+  --tt-color-label: rgb(19, 58, 51);
+  --tt-color-input: hsla(195, 11%, 15%);
+  --tt-color-placeholder: hsla(210, 9%, 31%, 0.3);
+  --ol-outline-input: hsla(194, 97%, 31%, 1);
+  --bg-button-hover: hsl(194, 64%, 27%);
+  --bg-color-input: hsla(194, 23%, 89%, 1);
+  --bg-border-input: hsla(194, 9%, 31%, 0.3);
+
+  --bg-error: hsla(0, 86%, 59%, 1);
+  --tt-error: hsla(0, 0%, 100%, 1);
+}
+body,
+input,
+button {
+  font-family: var(--ff-text);
+}
+body {
+  background-color: #040924;
+  font-size: 1.6rem;
+}
+
+#container {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+.card {
+  padding: 3.2rem 4.8rem 4.8rem;
+  background-color: white;
+  max-width: 42.8rem;
+  margin-inline: auto;
+
+  box-shadow: 0px .2rem .4rem rgba(0, 0, 0, 0.1);
+  border-radius: .6rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+
+  color: var(--tt-color-heading);
+}
+.container {
+  padding: 1.6rem;
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--tt-color-label);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  background: var(--bg-color-input);
+  padding: 1.6rem;
+  
+  border: 1px solid var(--bg-border-input);
+  border-radius: .4rem;
+}
+
+form input:focus {
+  outline: 2px solid var(--ol-outline-input);
+}
+
+form input::placeholder {
+  color: var(--tt-color-placeholder);
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form button {
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  width: 100%;
+  border: none;
+  background-color: var(--ol-outline-input);
+  color: var(--tt-error);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2rem;
+
+  border-radius: .4rem;
+
+ cursor: pointer;
+
+ transition: backgroud .3s;
+}
+
+form button:hover {
+  background: var(--bg-button-hover);
+}
+
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-wrapper {
+  height: 100vh;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+
+  background: none;
+  border: none;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+
+  transition: transform .3s;
+}
+
+.modal button:hover{
+  transform: scale(1.2);
+}
+
+
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+
+  transform: translateY(0);
+  transition: transform 1s ease;  
+}
+
+.alert-error {
+  position: absolute;
+
+  background-color: var(--bg-error);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--tt-error);
+  padding: .8rem 0;
+  font-weight: bold;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-35px);
+  transition: transform .5s ease;
+}
